@@ -14,6 +14,6 @@ main = StartApp.start {
 view : Signal.Address Episodes.Action -> Episodes.Model -> Html.Html
 view address model = div []
   [
-    h1 [] [text "const (the Podcast)"]
+    h1 [] [text "const the Podcast"]
   , Episodes.view address model
   ]

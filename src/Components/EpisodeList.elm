@@ -4,7 +4,7 @@ import Html exposing (div, text, ul, li)
 import Html.Events exposing (onClick)
 
 import Data.Episodes exposing (orderedEpisodes)
-import Models.Episode exposing (Episode)
+import Models.Episode exposing (Episode, properTitle)
 
 type alias Model = Maybe Episode
 
@@ -16,8 +16,7 @@ view address model =
   div []
     [
       ul []
-        <| List.map (li [])
-        <| List.map (\x -> [text x.title]) orderedEpisodes
+        <| List.map (\x -> li [] [text <| properTitle x]) orderedEpisodes
     ]
 
 type Action = SelectEpisode Episode

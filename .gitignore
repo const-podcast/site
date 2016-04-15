@@ -1,4 +1,7 @@
 # elm-package generated files
 elm-stuff/
+# Generated html and JS
+elm.js
+index.html
 # elm-repl generated files
 repl-temp-*

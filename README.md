@@ -7,11 +7,6 @@ Install elm
 npm install -g elm
 ```
 
-Install this project's packages
-```
-elm package install
-```
-
 Build the app
 ```
 elm make src/Main.elm

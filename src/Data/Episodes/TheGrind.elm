@@ -1,9 +1,9 @@
-module Data.Episodes.TheGrind (theGrind) where
+module Data.Episodes.TheGrind (episode) where
 
 import Models.Episode exposing (Episode)
 
-theGrind : Episode
-theGrind = {
+episode : Episode
+episode = {
     title = "The Grind"
   , guests = []
   , summary = "TODO.."

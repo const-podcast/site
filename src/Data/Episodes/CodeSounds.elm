@@ -1,9 +1,9 @@
-module Data.Episodes.CodeSounds (codeSounds) where
+module Data.Episodes.CodeSounds (episode) where
 
 import Models.Episode exposing (Episode)
 
-codeSounds : Episode
-codeSounds = {
+episode : Episode
+episode = {
     title = "Code Sounds"
   , guests = ["Ethan Winograd"]
   , summary = "TODO.."

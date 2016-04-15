@@ -1,9 +1,9 @@
-module Data.Episodes.TheQaDeveloperRelationship (qaDevRelationship) where
+module Data.Episodes.TheQaDeveloperRelationship (episode) where
 
 import Models.Episode exposing (Episode)
 
-qaDevRelationship : Episode
-qaDevRelationship = {
+episode : Episode
+episode = {
     title = "The QA-Developer Relationship"
   , guests = ["Coilynn Buford"]
   , summary = "TODO.."

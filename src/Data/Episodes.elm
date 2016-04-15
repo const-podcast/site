@@ -1,19 +1,19 @@
 module Data.Episodes where
 
-import Data.Episodes.CodeSounds exposing (codeSounds)
-import Data.Episodes.ConfidenceInCode exposing (confidenceInCode)
-import Data.Episodes.Queues exposing (queues)
-import Data.Episodes.SoftwareEngineeringLaws exposing (swEngLaws)
-import Data.Episodes.TheGrind exposing (theGrind)
-import Data.Episodes.TheQaDeveloperRelationship exposing (qaDevRelationship)
+import Data.Episodes.CodeSounds as CodeSounds
+import Data.Episodes.ConfidenceInCode as ConfidenceInCode
+import Data.Episodes.Queues as Queues
+import Data.Episodes.SoftwareEngineeringLaws as SoftwareEngineeringLaws
+import Data.Episodes.TheGrind as TheGrind
+import Data.Episodes.TheQaDeveloperRelationship as TheQaDeveloperRelationship
 import Models.Episode exposing (Episode)
 
 orderedEpisodes : List Episode
 orderedEpisodes = [
-    codeSounds,
-    queues,
-    confidenceInCode,
-    qaDevRelationship,
-    swEngLaws,
-    theGrind
+    CodeSounds.episode,
+    Queues.episode,
+    ConfidenceInCode.episode,
+    TheQaDeveloperRelationship.episode,
+    SoftwareEngineeringLaws.episode,
+    TheGrind.episode
   ]

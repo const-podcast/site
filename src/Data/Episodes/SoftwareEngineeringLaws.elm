@@ -1,9 +1,9 @@
-module Data.Episodes.SoftwareEngineeringLaws (swEngLaws) where
+module Data.Episodes.SoftwareEngineeringLaws (episode) where
 
 import Models.Episode exposing (Episode)
 
-swEngLaws : Episode
-swEngLaws = {
+episode : Episode
+episode = {
     title = "Software Engineering Laws"
   , guests = []
   , summary = "TODO.."

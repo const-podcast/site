@@ -1,9 +1,9 @@
-module Data.Episodes.ConfidenceInCode (confidenceInCode) where
+module Data.Episodes.ConfidenceInCode (episode) where
 
 import Models.Episode exposing (Episode)
 
-confidenceInCode : Episode
-confidenceInCode = {
+episode : Episode
+episode = {
     title = "Confidence in Code"
   , guests = ["Keith Pinson"]
   , summary = "TODO.."

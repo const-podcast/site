@@ -1,9 +1,9 @@
-module Data.Episodes.Queues (queues) where
+module Data.Episodes.Queues (episode) where
 
 import Models.Episode exposing (Episode)
 
-queues : Episode
-queues = {
+episode : Episode
+episode = {
     title = "Queues"
   , guests = []
   , summary = "TODO.."

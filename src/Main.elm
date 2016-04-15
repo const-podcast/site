@@ -1,28 +1,19 @@
 module Main where
 
-import Html exposing (div, button, text, h1, ul, li)
-import Html.Events exposing (onClick)
 import StartApp.Simple as StartApp
-import Data.Episodes exposing (orderedEpisodes)
+import Html exposing (h1, div, text)
 
-main =
-  StartApp.start { model = model, view = view, update = update }
+import Components.EpisodeList as Episodes
 
-model = 0
+main = StartApp.start {
+    model = Episodes.model
+  , view = view
+  , update = Episodes.update
+  }
 
-view address model =
-  div []
-    [
-      h1 [] [text "const (the Podcast)"]
-      , ul []
-        <| List.map (li [])
-        <| List.map (\x -> [text x.title]) orderedEpisodes
-    ]
-
-
-type Action = Increment | Decrement
-
-update action model =
-  case action of
-    Increment -> model + 1
-    Decrement -> model - 1
+view : Signal.Address Episodes.Action -> Episodes.Model -> Html.Html
+view address model = div []
+  [
+    h1 [] [text "const (the Podcast)"]
+  , Episodes.view address model
+  ]

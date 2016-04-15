@@ -10055,6 +10055,62 @@ Elm.StartApp.Simple.make = function (_elm) {
    };
    var Config = F3(function (a,b,c) {    return {model: a,view: b,update: c};});
    return _elm.StartApp.Simple.values = {_op: _op,Config: Config,start: start};
+};Elm.Models = Elm.Models || {};
+Elm.Models.Episode = Elm.Models.Episode || {};
+Elm.Models.Episode.make = function (_elm) {
+   "use strict";
+   _elm.Models = _elm.Models || {};
+   _elm.Models.Episode = _elm.Models.Episode || {};
+   if (_elm.Models.Episode.values) return _elm.Models.Episode.values;
+   var _U = Elm.Native.Utils.make(_elm),
+   $Basics = Elm.Basics.make(_elm),
+   $Debug = Elm.Debug.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm);
+   var _op = {};
+   var Episode = F3(function (a,b,c) {    return {title: a,guests: b,summary: c};});
+   return _elm.Models.Episode.values = {_op: _op,Episode: Episode};
+};Elm.Data = Elm.Data || {};
+Elm.Data.Episodes = Elm.Data.Episodes || {};
+Elm.Data.Episodes.CodeSounds = Elm.Data.Episodes.CodeSounds || {};
+Elm.Data.Episodes.CodeSounds.make = function (_elm) {
+   "use strict";
+   _elm.Data = _elm.Data || {};
+   _elm.Data.Episodes = _elm.Data.Episodes || {};
+   _elm.Data.Episodes.CodeSounds = _elm.Data.Episodes.CodeSounds || {};
+   if (_elm.Data.Episodes.CodeSounds.values) return _elm.Data.Episodes.CodeSounds.values;
+   var _U = Elm.Native.Utils.make(_elm),
+   $Basics = Elm.Basics.make(_elm),
+   $Debug = Elm.Debug.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Models$Episode = Elm.Models.Episode.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm);
+   var _op = {};
+   var codeSounds = {title: "Code Sounds",guests: _U.list(["Ethan Winograd"]),summary: "TODO.."};
+   return _elm.Data.Episodes.CodeSounds.values = {_op: _op,codeSounds: codeSounds};
+};Elm.Data = Elm.Data || {};
+Elm.Data.Episodes = Elm.Data.Episodes || {};
+Elm.Data.Episodes.make = function (_elm) {
+   "use strict";
+   _elm.Data = _elm.Data || {};
+   _elm.Data.Episodes = _elm.Data.Episodes || {};
+   if (_elm.Data.Episodes.values) return _elm.Data.Episodes.values;
+   var _U = Elm.Native.Utils.make(_elm),
+   $Basics = Elm.Basics.make(_elm),
+   $Data$Episodes$CodeSounds = Elm.Data.Episodes.CodeSounds.make(_elm),
+   $Debug = Elm.Debug.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Models$Episode = Elm.Models.Episode.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm);
+   var _op = {};
+   var orderedEpisodes = _U.list([$Data$Episodes$CodeSounds.codeSounds]);
+   return _elm.Data.Episodes.values = {_op: _op,orderedEpisodes: orderedEpisodes};
 };Elm.Main = Elm.Main || {};
 Elm.Main.make = function (_elm) {
    "use strict";

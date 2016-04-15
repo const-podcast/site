@@ -1,8 +1,9 @@
 module Main where
 
-import StartApp.Simple as StartApp
 import Html exposing (h1, div, text)
+import StartApp.Simple as StartApp
 
+import Components.Episode as Episode
 import Components.EpisodeList as Episodes
 
 main = StartApp.start {
@@ -15,5 +16,7 @@ view : Signal.Address Episodes.Action -> Episodes.Model -> Html.Html
 view address model = div []
   [
     h1 [] [text "const the Podcast"]
-  , Episodes.view address model
+  , case model of
+      Nothing -> Episodes.view address model
+      Just episode -> Episode.view episode
   ]

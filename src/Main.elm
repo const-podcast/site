@@ -26,7 +26,7 @@ view address model =
     , div
         [
           style [
-            ("background-color", "#D8CEF6")
+            ("background-color", "#848484")
           , ("padding-left","10%")
           , ("padding-right","10%")
           , ("padding-top","1em")

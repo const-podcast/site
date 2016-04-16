@@ -1,6 +1,6 @@
 module Components.EpisodeList (model, view, update, Action(..), Model) where
 
-import Html exposing (div, text, h4, h3)
+import Html exposing (div, text, h4, h3, a)
 import Html.Attributes exposing (style)
 import Html.Events exposing (onClick)
 
@@ -21,33 +21,37 @@ view address model =
 
 episodeLink : Signal.Address Action -> Episode -> Html.Html
 episodeLink address episode =
-  div
+  a
+    [onClick address (SelectEpisode episode)]
+  [div
     [
       style [
-        ("border", "1px solid black")
+        ("border", "4px solid black")
       , ("border-radius", "10px")
       , ("margin", "5px")
       , ("padding", "2px")
       , ("padding-left", "1em")
       , ("padding-right", "1em")
       , ("cursor", "pointer")
+      , ("background-color", "#1C1C1C")
       ]
-    , onClick address (SelectEpisode episode)
     ]
     [
       h3
         [
+          style [("color", "#ccc")]
         ]
         [
           text episode.title
         ]
     , h4
         [
+          style [("color", "white")]
         ]
         [
           text <| formatGuests episode.guests
         ]
-    ]
+    ]]
 
 type Action = SelectEpisode Episode
 

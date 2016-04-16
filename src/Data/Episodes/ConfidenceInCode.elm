@@ -7,4 +7,5 @@ episode = {
     title = "Confidence in Code"
   , guests = ["Keith Pinson"]
   , summary = "TODO.."
+  , identifier = "code-sounds"
   }

@@ -7,6 +7,7 @@ episode = {
     title = "Code Sounds"
   , guests = ["Ethan Winograd"]
   , summary = summary
+  , identifier = "code-sounds"
   }
 
 summary : String

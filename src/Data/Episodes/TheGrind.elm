@@ -7,4 +7,5 @@ episode = {
     title = "The Grind"
   , guests = []
   , summary = "TODO.."
+  , identifier = "the-grind"
   }

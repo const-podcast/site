@@ -7,4 +7,5 @@ episode = {
     title = "The QA-Developer Relationship"
   , guests = ["Coilynn Buford"]
   , summary = "TODO.."
+  , identifier = "qa-dev-relationship"
   }

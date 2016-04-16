@@ -4,6 +4,7 @@ type alias Episode = {
     title : String
   , guests : List String
   , summary : String
+  , identifier : String
   }
 
 formatGuests : List String -> String

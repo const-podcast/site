@@ -1,4 +1,4 @@
-module Components.EpisodeList (model, view, update, Action(..), Model) where
+module Components.EpisodeList (model, view, update, Action(..), Model, by) where
 
 import Html exposing (div, text, h4, h3, a)
 import Html.Attributes exposing (style)
@@ -57,3 +57,12 @@ type Action = SelectEpisode Episode
 
 update : Action -> Model -> Model
 update (SelectEpisode episode) _ = Just episode
+
+by : String -> Maybe Episode
+by identifier =
+  let
+    matches = List.filter (\ep -> (==) identifier ep.identifier) orderedEpisodes
+  in
+    case matches of
+      [] -> Nothing
+      (match::hopefullyNotOthers) -> Just match

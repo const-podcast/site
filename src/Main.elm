@@ -6,6 +6,7 @@ import Html.Events exposing (onClick)
 import StartApp.Simple as StartApp
 
 import Common.Styles exposing (linkStyle)
+import Components.Header as Header
 import Components.Episode as Episode
 import Components.EpisodeList as Episodes
 
@@ -18,7 +19,7 @@ main = StartApp.start {
 view : Signal.Address Action -> Episodes.Model -> Html.Html
 view address model = div []
   [
-    h1 [] [text "const the Podcast"]
+    Header.view
   , case model of
       Nothing -> Episodes.view (Signal.forwardTo address ListAction) model
       Just episode -> div [] [

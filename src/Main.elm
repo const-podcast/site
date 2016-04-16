@@ -17,19 +17,33 @@ main = StartApp.start {
   }
 
 view : Signal.Address Action -> Episodes.Model -> Html.Html
-view address model = div []
-  [
-    Header.view
-  , case model of
-      Nothing -> Episodes.view (Signal.forwardTo address ListAction) model
-      Just episode -> div [] [
-          a [
-            style linkStyle
-          , onClick address NavigateToEpisodeList
-          ] [text "All episodes"]
-        , Episode.view episode
+view address model =
+  div
+    [
+    ]
+    [
+      Header.view
+    , div
+        [
+          style [
+            ("background-color", "#D8CEF6")
+          , ("padding-left","20em")
+          , ("padding-right","20em")
+          , ("padding-top","1em")
+          ]
         ]
-  ]
+        [
+          case model of
+             Nothing -> Episodes.view (Signal.forwardTo address ListAction) model
+             Just episode -> div [] [
+                 a [
+                   style linkStyle
+                 , onClick address NavigateToEpisodeList
+                 ] [text "All episodes"]
+               , Episode.view episode
+               ]
+        ]
+    ]
 
 type Action =
   NavigateToEpisodeList

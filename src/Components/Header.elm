@@ -10,7 +10,7 @@ view =
       style [
         ("background-color", "black")
         , ("padding-left", "2em")
-        , ("padding-top", "1em")
+        , ("padding-top", "0.5em")
         , ("height", "100%")
       ]
     ]
@@ -19,8 +19,8 @@ view =
         [
           style [
             ("color", "#18D42F")
-          , ("height", "1.5em")
-          , ("font-size", "1.5em")
+          , ("height", "1em")
+          , ("font-size", "2em")
           ]
         ]
         [

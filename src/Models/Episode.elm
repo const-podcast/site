@@ -1,4 +1,4 @@
-module Models.Episode (Episode, properTitle) where
+module Models.Episode (Episode, formatGuests) where
 
 type alias Episode = {
     title : String
@@ -6,15 +6,11 @@ type alias Episode = {
   , summary : String
   }
 
-properTitle : Episode -> String
-properTitle episode =
-  episode.title ++ formatGuests episode.guests
-
 formatGuests : List String -> String
 formatGuests guests =
   case guests of
     [] -> ""
-    _ -> " (with " ++ joinCommaAnd guests ++ ")"
+    _ -> "with " ++ joinCommaAnd guests
 
 joinCommaAnd : List String -> String
 joinCommaAnd values =

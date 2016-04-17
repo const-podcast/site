@@ -68,8 +68,8 @@ view address model =
         [
           style [
             ("background-color", "#848484")
-          , ("padding-left","10%")
-          , ("padding-right","10%")
+          , ("padding-left","30%")
+          , ("padding-right","30%")
           , ("padding-top","1em")
           ]
         ]

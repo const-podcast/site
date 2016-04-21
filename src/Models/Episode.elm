@@ -5,6 +5,8 @@ type alias Episode = {
   , guests : List String
   , summary : String
   , identifier : String
+  , url : String
+  , icon : String
   }
 
 formatGuests : List String -> String

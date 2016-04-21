@@ -8,4 +8,6 @@ episode = {
   , guests = []
   , summary = "TODO.."
   , identifier = "software-engineering-laws"
+  , url = "FILLIN"
+  , icon = "FILLIN"
   }

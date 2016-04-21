@@ -10,10 +10,10 @@ import Models.Episode exposing (Episode)
 
 orderedEpisodes : List Episode
 orderedEpisodes = [
-    CodeSounds.episode,
-    Queues.episode,
-    ConfidenceInCode.episode,
-    TheQaDeveloperRelationship.episode,
-    SoftwareEngineeringLaws.episode,
+--    CodeSounds.episode,
+--    Queues.episode,
+--    ConfidenceInCode.episode,
+--    TheQaDeveloperRelationship.episode,
+--    SoftwareEngineeringLaws.episode,
     TheGrind.episode
   ]

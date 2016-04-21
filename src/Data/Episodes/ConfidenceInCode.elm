@@ -8,4 +8,6 @@ episode = {
   , guests = ["Keith Pinson"]
   , summary = "TODO.."
   , identifier = "code-sounds"
+  , url = "FILLIN"
+  , icon = "FILLIN"
   }

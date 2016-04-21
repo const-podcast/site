@@ -8,6 +8,8 @@ episode = {
   , guests = ["Ethan Winograd"]
   , summary = summary
   , identifier = "code-sounds"
+  , url = "FILLIN"
+  , icon = "FILLIN"
   }
 
 summary : String

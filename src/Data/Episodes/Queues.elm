@@ -8,4 +8,6 @@ episode = {
   , guests = []
   , summary = "TODO.."
   , identifier = "queues"
+  , url = "FILLIN"
+  , icon = "FILLIN"
   }

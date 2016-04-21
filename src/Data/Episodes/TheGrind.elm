@@ -8,4 +8,6 @@ episode = {
   , guests = []
   , summary = "TODO.."
   , identifier = "the-grind"
+  , url = "FILLIN"
+  , icon = "grindstone-icon.png"
   }

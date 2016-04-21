@@ -1,7 +1,7 @@
 module Components.EpisodeList (model, view, update, Action(..), Model, by) where
 
-import Html exposing (div, text, h4, h3, a)
-import Html.Attributes exposing (style)
+import Html exposing (div, text, h4, h3, a, img)
+import Html.Attributes exposing (style, src)
 import Html.Events exposing (onClick)
 
 import Common.Styles exposing (linkStyle)
@@ -34,12 +34,28 @@ episodeLink address episode =
       , ("padding-right", "1em")
       , ("cursor", "pointer")
       , ("background-color", "#1C1C1C")
+      , ("min-height", "85px")
       ]
     ]
     [
-      h3
+      img
         [
-          style [("color", "#ccc")]
+          src <| "/images/" ++ episode.icon
+        , style [
+            ("height", "70px")
+          , ("width", "70px")
+          , ("border-radius", "10px")
+          , ("border", "5px solid black")
+          , ("float", "left")
+          ]
+        ]
+        []
+    , h3
+        [
+          style [
+            ("color", "#ccc")
+          , ("margin-left", "90px")
+          ]
         ]
         [
           text episode.title

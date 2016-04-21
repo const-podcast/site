@@ -16,5 +16,5 @@ summary : String
 summary = """
 In this episode Jeff and Gilli discuss the grind. A state of mind we all have
 fallen into. The grind is characterized by heads-down, brute forced late
-nights. Join us as we discuss the benefits and tradeoffs of grind-state.
+nights. Join us as we discuss the benefits and trade-offs of grind-state.
 """

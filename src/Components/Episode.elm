@@ -1,6 +1,6 @@
 module Components.Episode (view) where
 
-import Html exposing (h2, div, text, iframe)
+import Html exposing (h2, div, text, iframe, a, br)
 import Html.Attributes exposing (..)
 import Markdown
 
@@ -16,8 +16,18 @@ view model =
     , iframe
         [
           src model.url
+        , style [
+            ("height", "80px")
+          ]
         ]
         [
         ]
+    , br [] []
+    , a [
+        href model.url
+      , style [
+        ("cursor", "pointer")
+        ]
+      ] [text "Download"]
     , Markdown.toHtml model.summary
     ]

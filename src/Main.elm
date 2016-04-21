@@ -6,6 +6,7 @@ import Html.Attributes exposing (style)
 import Html.Events exposing (onClick)
 import RouteHash
 import StartApp
+import Style
 import Task
 
 import Common.Styles exposing (linkStyle)
@@ -61,6 +62,9 @@ view : Signal.Address Action -> Model -> Html.Html
 view address model =
   div
     [
+      style [
+        ("", "")
+      ]
     ]
     [
       Header.view
@@ -84,6 +88,7 @@ view address model =
                , Episode.view episode
                ]
         ]
+    , Html.node "style" [] [text appWideStyle]
     ]
 
 type Action =
@@ -96,3 +101,10 @@ update action _ =
   case action of
     ListAction (Episodes.SelectEpisode episode) -> (Just episode, Effects.none)
     _ -> (Nothing, Effects.none)
+
+appWideStyle : String
+appWideStyle =
+  Style.rules
+    [
+      ( "body", [("background-color", "#848484")])
+    ]

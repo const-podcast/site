@@ -1,6 +1,7 @@
 module Components.Episode (view) where
 
-import Html exposing (h2, div, text)
+import Html exposing (h2, div, text, iframe)
+import Html.Attributes exposing (..)
 import Markdown
 
 import Models.Episode exposing (Episode)
@@ -12,5 +13,11 @@ view model =
   div []
     [
       h2 [] [text model.title]
+    , iframe
+        [
+          src model.url
+        ]
+        [
+        ]
     , Markdown.toHtml model.summary
     ]

@@ -19,5 +19,4 @@ elm reactor
 (navigate to `localhost:8000/src/Main.elm`
 
 ## TODO
- - Summary (shorter) on episode card
- - Background image
+ - Expand summary on click

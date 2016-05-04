@@ -1,8 +1,7 @@
 module Components.EpisodeList (model, view, update, Action(..), Model, by) where
 
-import Html exposing (div, text, h4, h3, a, img, p, iframe)
-import Html.Attributes exposing (style, src)
-import Html.Events exposing (onClick)
+import Html exposing (div, text, h4, h3, span, img, p, a)
+import Html.Attributes exposing (style, src, href, target)
 
 import Common.Styles exposing (linkStyle)
 import Data.Episodes exposing (orderedEpisodes)
@@ -21,19 +20,16 @@ view address model =
 
 episodeLink : Signal.Address Action -> Episode -> Html.Html
 episodeLink address episode =
-  a
-    [onClick address (SelectEpisode episode)]
+  span
+    []
   [div
     [
       style [
-        ("border", "4px solid black")
-      , ("border-radius", "10px")
-      , ("margin", "5px")
-      , ("padding", "2px")
+        ("border-radius", "6px")
+      , ("padding", "10px")
       , ("padding-left", "1em")
       , ("padding-right", "1em")
-      , ("cursor", "pointer")
-      , ("background-color", "#1C1C1C")
+      , ("background-color", "rgba(9,10,14,0.7)")
       , ("min-height", "85px")
       ]
     ]
@@ -44,8 +40,7 @@ episodeLink address episode =
         , style [
             ("height", "70px")
           , ("width", "70px")
-          , ("border-radius", "10px")
-          , ("border", "5px solid black")
+          , ("border-radius", "4px")
           , ("float", "left")
           ]
         ]
@@ -77,16 +72,19 @@ episodeLink address episode =
         [
           text <| episode.summary
         ]
-    , iframe
-        [
-          src episode.url
-        , style [
-            ("height", "80px")
-          ]
+    , div [
+          style [("text-align", "center")]
         ]
         [
+          a
+        [
+          href episode.url
+        , target "_blank"
         ]
-    ]]
+        [
+          text "Play / Download"
+        ]
+    ]]]
 
 type Action = SelectEpisode Episode
 

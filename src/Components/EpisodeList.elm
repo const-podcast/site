@@ -1,6 +1,6 @@
 module Components.EpisodeList (model, view, update, Action(..), Model, by) where
 
-import Html exposing (div, text, h4, h3, a, img)
+import Html exposing (div, text, h4, h3, a, img, p, iframe)
 import Html.Attributes exposing (style, src)
 import Html.Events exposing (onClick)
 
@@ -66,6 +66,25 @@ episodeLink address episode =
         ]
         [
           text <| formatGuests episode.guests
+        ]
+    , p
+        [
+          style [
+            ("margin-left", "90px")
+          , ("color", "white")
+          ]
+        ]
+        [
+          text <| episode.summary
+        ]
+    , iframe
+        [
+          src episode.url
+        , style [
+            ("height", "80px")
+          ]
+        ]
+        [
         ]
     ]]
 

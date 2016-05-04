@@ -17,3 +17,7 @@ Running the app
 elm reactor
 ```
 (navigate to `localhost:8000/src/Main.elm`
+
+## TODO
+ - Summary (shorter) on episode card
+ - Background image

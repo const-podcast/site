@@ -8,10 +8,8 @@ view =
   div
     [
       style [
-        ("background-color", "black")
-        , ("padding-left", "2em")
+          ("padding-left", "2em")
         , ("padding-top", "0.5em")
-        , ("border-bottom", "1px solid white")
         , ("height", "100%")
       ]
     ]
@@ -19,7 +17,7 @@ view =
       p
         [
           style [
-            ("color", "#18D42F")
+            ("color", "#F3953B")
           , ("height", "1em")
           , ("font-size", "2em")
           ]

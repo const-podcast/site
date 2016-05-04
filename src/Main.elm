@@ -71,9 +71,8 @@ view address model =
     , div
         [
           style [
-            ("background-color", "#848484")
-          , ("padding-left","30%")
-          , ("padding-right","30%")
+            ("padding-left","50%")
+          , ("padding-right","10%")
           , ("padding-top","1em")
           ]
         ]
@@ -106,5 +105,8 @@ appWideStyle : String
 appWideStyle =
   Style.rules
     [
-      ( "body", [("background-color", "#848484")])
+      ( "body", [
+        ("background", "url(/images/bg.jpeg)")
+      , ("background-size", "cover")
+      ])
     ]

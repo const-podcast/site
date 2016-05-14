@@ -4,10 +4,16 @@ import Models.Episode exposing (Episode)
 
 episode : Episode
 episode = {
-    title = "Software Engineering Laws"
+    title = "Software Laws"
   , guests = []
-  , summary = "TODO.."
+  , summary = summary
   , identifier = "software-engineering-laws"
-  , url = "FILLIN"
-  , icon = "FILLIN"
+  , url = "https://s3-us-west-2.amazonaws.com/constpodcast/const.s01.e02.software.laws.mp3"
+  , icon = "scroll-icon.png"
   }
+
+summary : String
+summary = """
+There are many so-called engineering "laws". Some seem true, some
+ridiculous. Join us as we discuss some of these more popular laws.
+"""

@@ -27,6 +27,7 @@ episodeLink address episode =
       style [
         ("border-radius", "6px")
       , ("padding", "10px")
+      , ("margin-bottom", "10px")
       , ("padding-left", "1em")
       , ("padding-right", "1em")
       , ("background-color", "rgba(9,10,14,0.7)")

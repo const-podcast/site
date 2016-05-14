@@ -14,6 +14,6 @@ orderedEpisodes = [
 --    Queues.episode,
 --    ConfidenceInCode.episode,
 --    TheQaDeveloperRelationship.episode,
---    SoftwareEngineeringLaws.episode,
+    SoftwareEngineeringLaws.episode,
     TheGrind.episode
   ]

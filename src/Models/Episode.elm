@@ -1,13 +1,25 @@
-module Models.Episode (Episode, formatGuests) where
+module Models.Episode (Episode, formatGuests, episodeNumber) where
+
+import String exposing (padLeft, concat)
 
 type alias Episode = {
     title : String
   , guests : List String
   , summary : String
   , identifier : String
+  , episodeOfSeason : Int
+  , season : Int
   , url : String
   , icon : String
   }
+
+episodeNumber : Episode -> String
+episodeNumber episode =
+  concat [
+    "season ", toString episode.season
+  , ", "
+  , "episode ", toString episode.episodeOfSeason
+  ]
 
 formatGuests : List String -> String
 formatGuests guests =

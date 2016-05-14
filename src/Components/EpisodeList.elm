@@ -5,7 +5,7 @@ import Html.Attributes exposing (style, src, href, target)
 
 import Common.Styles exposing (linkStyle)
 import Data.Episodes exposing (orderedEpisodes)
-import Models.Episode exposing (Episode, formatGuests)
+import Models.Episode exposing (Episode, formatGuests, episodeNumber)
 
 type alias Model = Maybe Episode
 
@@ -54,7 +54,9 @@ episodeLink address episode =
           ]
         ]
         [
-          text episode.title
+          text episode.title,
+          text " | ",
+          text <| episodeNumber episode
         ]
     , h4
         [

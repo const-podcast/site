@@ -8,6 +8,8 @@ episode = {
   , guests = ["Ethan Winograd"]
   , summary = summary
   , identifier = "code-sounds"
+  , season = 1
+  , episodeOfSeason = 6
   , url = "FILLIN"
   , icon = "FILLIN"
   }

@@ -8,6 +8,8 @@ episode = {
   , guests = []
   , summary = summary
   , identifier = "the-grind"
+  , season = 1
+  , episodeOfSeason = 1
   , url = "https://s3-us-west-2.amazonaws.com/constpodcast/const.s01e01.the_grind.mp3"
   , icon = "grindstone-icon.png"
   }

@@ -11625,7 +11625,8 @@ Elm.Models.Episode.make = function (_elm) {
    $List = Elm.List.make(_elm),
    $Maybe = Elm.Maybe.make(_elm),
    $Result = Elm.Result.make(_elm),
-   $Signal = Elm.Signal.make(_elm);
+   $Signal = Elm.Signal.make(_elm),
+   $String = Elm.String.make(_elm);
    var _op = {};
    var joinCommaAnd = function (values) {
       var _p0 = values;
@@ -11651,8 +11652,11 @@ Elm.Models.Episode.make = function (_elm) {
             return A2($Basics._op["++"],"with ",joinCommaAnd(guests));
          }
    };
-   var Episode = F6(function (a,b,c,d,e,f) {    return {title: a,guests: b,summary: c,identifier: d,url: e,icon: f};});
-   return _elm.Models.Episode.values = {_op: _op,formatGuests: formatGuests,Episode: Episode};
+   var episodeNumber = function (episode) {
+      return $String.concat(_U.list(["season ",$Basics.toString(episode.season),", ","episode ",$Basics.toString(episode.episodeOfSeason)]));
+   };
+   var Episode = F8(function (a,b,c,d,e,f,g,h) {    return {title: a,guests: b,summary: c,identifier: d,episodeOfSeason: e,season: f,url: g,icon: h};});
+   return _elm.Models.Episode.values = {_op: _op,formatGuests: formatGuests,episodeNumber: episodeNumber,Episode: Episode};
 };
 Elm.Components = Elm.Components || {};
 Elm.Components.Episode = Elm.Components.Episode || {};
@@ -11707,7 +11711,14 @@ Elm.Data.Episodes.CodeSounds.make = function (_elm) {
    $Signal = Elm.Signal.make(_elm);
    var _op = {};
    var summary = "\n# Test\n\nThis is a test of the markdown capabilities.\n - Thing\n - Other thing\n - [github](https://www.github.com)\n\n";
-   var episode = {title: "Code Sounds",guests: _U.list(["Ethan Winograd"]),summary: summary,identifier: "code-sounds",url: "FILLIN",icon: "FILLIN"};
+   var episode = {title: "Code Sounds"
+                 ,guests: _U.list(["Ethan Winograd"])
+                 ,summary: summary
+                 ,identifier: "code-sounds"
+                 ,season: 1
+                 ,episodeOfSeason: 6
+                 ,url: "FILLIN"
+                 ,icon: "FILLIN"};
    return _elm.Data.Episodes.CodeSounds.values = {_op: _op,episode: episode};
 };
 Elm.Data = Elm.Data || {};
@@ -11728,7 +11739,14 @@ Elm.Data.Episodes.ConfidenceInCode.make = function (_elm) {
    $Result = Elm.Result.make(_elm),
    $Signal = Elm.Signal.make(_elm);
    var _op = {};
-   var episode = {title: "Confidence in Code",guests: _U.list(["Keith Pinson"]),summary: "TODO..",identifier: "code-sounds",url: "FILLIN",icon: "FILLIN"};
+   var episode = {title: "Confidence in Code"
+                 ,guests: _U.list(["Keith Pinson"])
+                 ,summary: "TODO.."
+                 ,identifier: "code-sounds"
+                 ,season: 1
+                 ,episodeOfSeason: 4
+                 ,url: "FILLIN"
+                 ,icon: "FILLIN"};
    return _elm.Data.Episodes.ConfidenceInCode.values = {_op: _op,episode: episode};
 };
 Elm.Data = Elm.Data || {};
@@ -11749,7 +11767,7 @@ Elm.Data.Episodes.Queues.make = function (_elm) {
    $Result = Elm.Result.make(_elm),
    $Signal = Elm.Signal.make(_elm);
    var _op = {};
-   var episode = {title: "Queues",guests: _U.list([]),summary: "TODO..",identifier: "queues",url: "FILLIN",icon: "FILLIN"};
+   var episode = {title: "Queues",guests: _U.list([]),summary: "TODO..",identifier: "queues",season: 1,episodeOfSeason: 5,url: "FILLIN",icon: "FILLIN"};
    return _elm.Data.Episodes.Queues.values = {_op: _op,episode: episode};
 };
 Elm.Data = Elm.Data || {};
@@ -11771,9 +11789,11 @@ Elm.Data.Episodes.SoftwareEngineeringLaws.make = function (_elm) {
    $Signal = Elm.Signal.make(_elm);
    var _op = {};
    var summary = "\nThere are many so-called engineering \"laws\". Some seem true, some\nridiculous. Join us as we discuss some of these more popular laws.\n";
-   var episode = {title: "Software Engineering Laws"
+   var episode = {title: "Software Laws"
                  ,guests: _U.list([])
                  ,summary: summary
+                 ,season: 1
+                 ,episodeOfSeason: 2
                  ,identifier: "software-engineering-laws"
                  ,url: "https://s3-us-west-2.amazonaws.com/constpodcast/const.s01.e02.software.laws.mp3"
                  ,icon: "scroll-icon.png"};
@@ -11802,6 +11822,8 @@ Elm.Data.Episodes.TheGrind.make = function (_elm) {
                  ,guests: _U.list([])
                  ,summary: summary
                  ,identifier: "the-grind"
+                 ,season: 1
+                 ,episodeOfSeason: 1
                  ,url: "https://s3-us-west-2.amazonaws.com/constpodcast/const.s01e01.the_grind.mp3"
                  ,icon: "grindstone-icon.png"};
    return _elm.Data.Episodes.TheGrind.values = {_op: _op,episode: episode};
@@ -11828,6 +11850,8 @@ Elm.Data.Episodes.TheQaDeveloperRelationship.make = function (_elm) {
                  ,guests: _U.list(["Coilynn Buford"])
                  ,summary: "TODO.."
                  ,identifier: "qa-dev-relationship"
+                 ,season: 1
+                 ,episodeOfSeason: 3
                  ,url: "FILLIN"
                  ,icon: "FILLIN"};
    return _elm.Data.Episodes.TheQaDeveloperRelationship.values = {_op: _op,episode: episode};
@@ -11907,7 +11931,7 @@ Elm.Components.EpisodeList.make = function (_elm) {
               _U.list([]))
               ,A2($Html.h3,
               _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "color",_1: "#ccc"},{ctor: "_Tuple2",_0: "margin-left",_1: "90px"}]))]),
-              _U.list([$Html.text(episode.title)]))
+              _U.list([$Html.text(episode.title),$Html.text(" | "),$Html.text($Models$Episode.episodeNumber(episode))]))
               ,A2($Html.h4,
               _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "color",_1: "white"}]))]),
               _U.list([$Html.text($Models$Episode.formatGuests(episode.guests))]))

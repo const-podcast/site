@@ -11897,11 +11897,13 @@ Elm.Components.EpisodeList.make = function (_elm) {
    $Debug = Elm.Debug.make(_elm),
    $Html = Elm.Html.make(_elm),
    $Html$Attributes = Elm.Html.Attributes.make(_elm),
+   $Html$Events = Elm.Html.Events.make(_elm),
    $List = Elm.List.make(_elm),
    $Maybe = Elm.Maybe.make(_elm),
    $Models$Episode = Elm.Models.Episode.make(_elm),
    $Result = Elm.Result.make(_elm),
-   $Signal = Elm.Signal.make(_elm);
+   $Signal = Elm.Signal.make(_elm),
+   $String = Elm.String.make(_elm);
    var _op = {};
    var by = function (identifier) {
       var matches = A2($List.filter,
@@ -11918,7 +11920,7 @@ Elm.Components.EpisodeList.make = function (_elm) {
    };
    var update = F2(function (_p2,_p1) {    var _p3 = _p2;return $Maybe.Just(_p3._0);});
    var SelectEpisode = function (a) {    return {ctor: "SelectEpisode",_0: a};};
-   var episodeLink = F2(function (address,episode) {
+   var episodeCard = F2(function (address,episode) {
       return A2($Html.span,
       _U.list([]),
       _U.list([A2($Html.div,
@@ -11939,15 +11941,26 @@ Elm.Components.EpisodeList.make = function (_elm) {
               ,A2($Html.p,
               _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "color",_1: "#ccc"},{ctor: "_Tuple2",_0: "float",_1: "right"}]))]),
               _U.list([$Html.text($Models$Episode.episodeNumber(episode))]))
-              ,A2($Html.h3,
-              _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "color",_1: "#ccc"},{ctor: "_Tuple2",_0: "margin-left",_1: "90px"}]))]),
-              _U.list([$Html.text(episode.title)]))
+              ,A2($Html.a,
+              _U.list([]),
+              _U.list([A2($Html.h3,
+              _U.list([A2($Html$Events.onClick,address,SelectEpisode(episode))
+                      ,$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "color",_1: "#ccc"}
+                                                      ,{ctor: "_Tuple2",_0: "margin-left",_1: "90px"}
+                                                      ,{ctor: "_Tuple2",_0: "cursor",_1: "pointer"}]))]),
+              _U.list([$Html.text(episode.title)]))]))
+              ,A2($Html.p,
+              _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "color",_1: "white"},{ctor: "_Tuple2",_0: "margin-left",_1: "90px"}]))]),
+              _U.list([$Html.text($Models$Episode.formatGuests(episode.guests))]))
               ,A2($Html.p,
               _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "margin-left",_1: "90px"},{ctor: "_Tuple2",_0: "color",_1: "white"}]))]),
-              _U.list([$Html.text(episode.summary)]))
-              ,A2($Html.h4,
-              _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "color",_1: "white"}]))]),
-              _U.list([$Html.text($Models$Episode.formatGuests(episode.guests))]))
+              _U.list([$Html.text(A3($String.slice,0,70,episode.summary))
+                      ,$Html.text("...")
+                      ,A2($Html.br,_U.list([]),_U.list([]))
+                      ,A2($Html.a,
+                      _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "cursor",_1: "pointer"},{ctor: "_Tuple2",_0: "color",_1: "#FF9F25"}]))
+                              ,A2($Html$Events.onClick,address,SelectEpisode(episode))]),
+                      _U.list([$Html.text("(More and show notes...)")]))]))
               ,A2($Html.div,
               _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "text-align",_1: "center"}]))]),
               _U.list([A2($Html.audio,
@@ -11962,7 +11975,7 @@ Elm.Components.EpisodeList.make = function (_elm) {
                       _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "color",_1: "#ccc"}]))]),
                       _U.list([$Html.text("(right-click, \"Save As\")")]))]))]))]));
    });
-   var view = F2(function (address,model) {    return A2($Html.div,_U.list([]),A2($List.map,episodeLink(address),$Data$Episodes.orderedEpisodes));});
+   var view = F2(function (address,model) {    return A2($Html.div,_U.list([]),A2($List.map,episodeCard(address),$Data$Episodes.orderedEpisodes));});
    var model = $Maybe.Nothing;
    return _elm.Components.EpisodeList.values = {_op: _op,model: model,view: view,update: update,by: by,SelectEpisode: SelectEpisode};
 };

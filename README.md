@@ -17,6 +17,3 @@ Running the app
 elm reactor
 ```
 (navigate to `localhost:8000/src/Main.elm`
-
-## TODO
- - Expand summary on click

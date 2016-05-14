@@ -7,8 +7,12 @@ import String
 import Models.Episode exposing (Episode, formatGuests, episodeNumber)
 import Html.Events exposing (onClick)
 
-view : Signal.Address Action -> Episode -> Html.Html
-view address episode =
+type alias Options = {
+    fullSummary : Bool
+  }
+
+view : Options -> Signal.Address Action -> Episode -> Html.Html
+view opts address episode =
   span
     []
   [div
@@ -35,12 +39,14 @@ view address episode =
           ]
         ]
         []
-    , p
+    , a
         [
           style [
             ("color", "#ccc")
           , ("float", "right")
+          , ("cursor", "pointer")
           ]
+          , onClick address (SelectEpisode episode)
         ]
         [
           text <| episodeNumber episode

@@ -1,20 +1,19 @@
 module Components.EpisodeList (view, by) where
 
-import Html exposing (..)
-import Html.Attributes exposing (..)
-import Html.Events exposing (onClick)
-import String
+import Html exposing (div)
 
-import Common.Styles exposing (linkStyle)
 import Components.EpisodeCard as Card
 import Data.Episodes exposing (orderedEpisodes)
-import Models.Episode exposing (Episode, formatGuests, episodeNumber)
+import Models.Episode exposing (Episode)
 
 view : Signal.Address Card.Action -> Card.Model -> Html.Html
 view address model =
-  div
-    []
-    <| List.map (Card.view address) orderedEpisodes
+  let
+    shortCard = Card.view { fullSummary = False } address
+  in
+    div
+      []
+      <| List.map shortCard orderedEpisodes
 
 by : String -> Maybe Episode
 by identifier =

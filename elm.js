@@ -11717,7 +11717,7 @@ Elm.Components.EpisodeCard.make = function (_elm) {
    var _op = {};
    var update = F2(function (_p1,_p0) {    var _p2 = _p1;return $Maybe.Just(_p2._0);});
    var SelectEpisode = function (a) {    return {ctor: "SelectEpisode",_0: a};};
-   var view = F2(function (address,episode) {
+   var view = F3(function (opts,address,episode) {
       return A2($Html.span,
       _U.list([]),
       _U.list([A2($Html.div,
@@ -11735,8 +11735,11 @@ Elm.Components.EpisodeCard.make = function (_elm) {
                                                       ,{ctor: "_Tuple2",_0: "border-radius",_1: "4px"}
                                                       ,{ctor: "_Tuple2",_0: "float",_1: "left"}]))]),
               _U.list([]))
-              ,A2($Html.p,
-              _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "color",_1: "#ccc"},{ctor: "_Tuple2",_0: "float",_1: "right"}]))]),
+              ,A2($Html.a,
+              _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "color",_1: "#ccc"}
+                                                      ,{ctor: "_Tuple2",_0: "float",_1: "right"}
+                                                      ,{ctor: "_Tuple2",_0: "cursor",_1: "pointer"}]))
+                      ,A2($Html$Events.onClick,address,SelectEpisode(episode))]),
               _U.list([$Html.text($Models$Episode.episodeNumber(episode))]))
               ,A2($Html.a,
               _U.list([]),
@@ -11772,6 +11775,7 @@ Elm.Components.EpisodeCard.make = function (_elm) {
                       _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "color",_1: "#ccc"}]))]),
                       _U.list([$Html.text("(right-click, \"Save As\")")]))]))]))]));
    });
+   var Options = function (a) {    return {fullSummary: a};};
    return _elm.Components.EpisodeCard.values = {_op: _op,view: view,update: update,SelectEpisode: SelectEpisode};
 };
 Elm.Data = Elm.Data || {};
@@ -11996,7 +12000,8 @@ Elm.Components.EpisodeList.make = function (_elm) {
          }
    };
    var view = F2(function (address,model) {
-      return A2($Html.div,_U.list([]),A2($List.map,$Components$EpisodeCard.view(address),$Data$Episodes.orderedEpisodes));
+      var shortCard = A2($Components$EpisodeCard.view,{fullSummary: false},address);
+      return A2($Html.div,_U.list([]),A2($List.map,shortCard,$Data$Episodes.orderedEpisodes));
    });
    return _elm.Components.EpisodeList.values = {_op: _op,view: view,by: by};
 };

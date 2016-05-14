@@ -1,4 +1,4 @@
-module Main where
+module Const where
 
 import Effects
 import Html exposing (h1, div, text, a)

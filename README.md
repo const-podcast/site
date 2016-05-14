@@ -9,11 +9,11 @@ npm install -g elm
 
 Build the app
 ```
-elm make src/Main.elm
+elm make src/Const.elm
 ```
 
 Running the app
 ```
 elm reactor
 ```
-(navigate to `localhost:8000/src/Main.elm`
+(navigate to `localhost:8000/src/Const.elm`

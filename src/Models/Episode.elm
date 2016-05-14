@@ -16,9 +16,8 @@ type alias Episode = {
 episodeNumber : Episode -> String
 episodeNumber episode =
   concat [
-    "season ", toString episode.season
-  , ", "
-  , "episode ", toString episode.episodeOfSeason
+    "s", padLeft 2 '0' <| toString episode.season
+  , "e", padLeft 2 '0' <| toString episode.episodeOfSeason
   ]
 
 formatGuests : List String -> String

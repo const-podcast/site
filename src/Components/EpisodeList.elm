@@ -58,13 +58,6 @@ episodeLink address episode =
           text " | ",
           text <| episodeNumber episode
         ]
-    , h4
-        [
-          style [("color", "white")]
-        ]
-        [
-          text <| formatGuests episode.guests
-        ]
     , p
         [
           style [
@@ -74,6 +67,13 @@ episodeLink address episode =
         ]
         [
           text <| episode.summary
+        ]
+    , h4
+        [
+          style [("color", "white")]
+        ]
+        [
+          text <| formatGuests episode.guests
         ]
     , div [
           style [("text-align", "center")]

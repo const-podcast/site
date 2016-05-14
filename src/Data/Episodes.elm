@@ -13,7 +13,7 @@ orderedEpisodes = [
 --    CodeSounds.episode,
 --    Queues.episode,
 --    ConfidenceInCode.episode,
---    TheQaDeveloperRelationship.episode,
+    TheQaDeveloperRelationship.episode,
     SoftwareEngineeringLaws.episode,
     TheGrind.episode
   ]

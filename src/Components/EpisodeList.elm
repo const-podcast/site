@@ -1,7 +1,7 @@
 module Components.EpisodeList (model, view, update, Action(..), Model, by) where
 
-import Html exposing (div, text, h4, h3, span, img, p, a)
-import Html.Attributes exposing (style, src, href, target)
+import Html exposing (div, text, h4, h3, span, img, p, a, audio, source)
+import Html.Attributes exposing (..)
 
 import Common.Styles exposing (linkStyle)
 import Data.Episodes exposing (orderedEpisodes)
@@ -88,18 +88,18 @@ episodeLink address episode =
           style [("text-align", "center")]
         ]
         [
-          img
+          audio
             [
-              src <| "/images/play.png"
-            , style [
-                ("height", "20px")
-              , ("width", "20px")
-              , ("border-radius", "4px")
-              , ("background-color", "#FF9F25")
-              , ("margin-right", "20px")
-              ]
+              controls True
             ]
-            []
+            [
+              source
+                [
+                  src episode.url
+                , type' "audio/mpeg"
+                ]
+                []
+            ]
         , a
           [
             href episode.url

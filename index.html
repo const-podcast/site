@@ -11599,7 +11599,10 @@ Elm.Models.Episode.make = function (_elm) {
          }
    };
    var episodeNumber = function (episode) {
-      return $String.concat(_U.list(["season ",$Basics.toString(episode.season),", ","episode ",$Basics.toString(episode.episodeOfSeason)]));
+      return $String.concat(_U.list(["s"
+                                    ,A3($String.padLeft,2,_U.chr("0"),$Basics.toString(episode.season))
+                                    ,"e"
+                                    ,A3($String.padLeft,2,_U.chr("0"),$Basics.toString(episode.episodeOfSeason))]));
    };
    var Episode = F8(function (a,b,c,d,e,f,g,h) {    return {title: a,guests: b,summary: c,identifier: d,episodeOfSeason: e,season: f,url: g,icon: h};});
    return _elm.Models.Episode.values = {_op: _op,formatGuests: formatGuests,episodeNumber: episodeNumber,Episode: Episode};
@@ -11785,14 +11788,15 @@ Elm.Data.Episodes.TheQaDeveloperRelationship.make = function (_elm) {
    $Result = Elm.Result.make(_elm),
    $Signal = Elm.Signal.make(_elm);
    var _op = {};
+   var summary = "\nThe relationship between QAs and developers can truly make or break a product.\nJoin us as we discuss ways developers can help make this relationship flourish.\n";
    var episode = {title: "The QA-Developer Relationship"
                  ,guests: _U.list(["Coilynn Buford"])
-                 ,summary: "TODO.."
+                 ,summary: summary
                  ,identifier: "qa-dev-relationship"
                  ,season: 1
                  ,episodeOfSeason: 3
-                 ,url: "FILLIN"
-                 ,icon: "FILLIN"};
+                 ,url: "https://s3-us-west-2.amazonaws.com/constpodcast/const.s01e03.dev.qa.relationship.mp3"
+                 ,icon: "magnify-bug-icon.png"};
    return _elm.Data.Episodes.TheQaDeveloperRelationship.values = {_op: _op,episode: episode};
 };Elm.Data = Elm.Data || {};
 Elm.Data.Episodes = Elm.Data.Episodes || {};
@@ -11805,6 +11809,7 @@ Elm.Data.Episodes.make = function (_elm) {
    $Basics = Elm.Basics.make(_elm),
    $Data$Episodes$SoftwareEngineeringLaws = Elm.Data.Episodes.SoftwareEngineeringLaws.make(_elm),
    $Data$Episodes$TheGrind = Elm.Data.Episodes.TheGrind.make(_elm),
+   $Data$Episodes$TheQaDeveloperRelationship = Elm.Data.Episodes.TheQaDeveloperRelationship.make(_elm),
    $Debug = Elm.Debug.make(_elm),
    $List = Elm.List.make(_elm),
    $Maybe = Elm.Maybe.make(_elm),
@@ -11812,7 +11817,9 @@ Elm.Data.Episodes.make = function (_elm) {
    $Result = Elm.Result.make(_elm),
    $Signal = Elm.Signal.make(_elm);
    var _op = {};
-   var orderedEpisodes = _U.list([$Data$Episodes$SoftwareEngineeringLaws.episode,$Data$Episodes$TheGrind.episode]);
+   var orderedEpisodes = _U.list([$Data$Episodes$TheQaDeveloperRelationship.episode
+                                 ,$Data$Episodes$SoftwareEngineeringLaws.episode
+                                 ,$Data$Episodes$TheGrind.episode]);
    return _elm.Data.Episodes.values = {_op: _op,orderedEpisodes: orderedEpisodes};
 };Elm.Components = Elm.Components || {};
 Elm.Components.EpisodeList = Elm.Components.EpisodeList || {};
@@ -11869,12 +11876,12 @@ Elm.Components.EpisodeList.make = function (_elm) {
               ,A2($Html.h3,
               _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "color",_1: "#ccc"},{ctor: "_Tuple2",_0: "margin-left",_1: "90px"}]))]),
               _U.list([$Html.text(episode.title),$Html.text(" | "),$Html.text($Models$Episode.episodeNumber(episode))]))
-              ,A2($Html.h4,
-              _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "color",_1: "white"}]))]),
-              _U.list([$Html.text($Models$Episode.formatGuests(episode.guests))]))
               ,A2($Html.p,
               _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "margin-left",_1: "90px"},{ctor: "_Tuple2",_0: "color",_1: "white"}]))]),
               _U.list([$Html.text(episode.summary)]))
+              ,A2($Html.h4,
+              _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "color",_1: "white"}]))]),
+              _U.list([$Html.text($Models$Episode.formatGuests(episode.guests))]))
               ,A2($Html.div,
               _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "text-align",_1: "center"}]))]),
               _U.list([A2($Html.a,

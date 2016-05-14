@@ -46,6 +46,16 @@ episodeLink address episode =
           ]
         ]
         []
+    , p
+        [
+          style [
+            ("color", "#ccc")
+          , ("float", "right")
+          ]
+        ]
+        [
+          text <| episodeNumber episode
+        ]
     , h3
         [
           style [
@@ -54,9 +64,7 @@ episodeLink address episode =
           ]
         ]
         [
-          text episode.title,
-          text " | ",
-          text <| episodeNumber episode
+          text episode.title
         ]
     , p
         [

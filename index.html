@@ -11873,9 +11873,12 @@ Elm.Components.EpisodeList.make = function (_elm) {
                                                       ,{ctor: "_Tuple2",_0: "border-radius",_1: "4px"}
                                                       ,{ctor: "_Tuple2",_0: "float",_1: "left"}]))]),
               _U.list([]))
+              ,A2($Html.p,
+              _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "color",_1: "#ccc"},{ctor: "_Tuple2",_0: "float",_1: "right"}]))]),
+              _U.list([$Html.text($Models$Episode.episodeNumber(episode))]))
               ,A2($Html.h3,
               _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "color",_1: "#ccc"},{ctor: "_Tuple2",_0: "margin-left",_1: "90px"}]))]),
-              _U.list([$Html.text(episode.title),$Html.text(" | "),$Html.text($Models$Episode.episodeNumber(episode))]))
+              _U.list([$Html.text(episode.title)]))
               ,A2($Html.p,
               _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "margin-left",_1: "90px"},{ctor: "_Tuple2",_0: "color",_1: "white"}]))]),
               _U.list([$Html.text(episode.summary)]))

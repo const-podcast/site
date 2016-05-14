@@ -11950,9 +11950,22 @@ Elm.Components.EpisodeList.make = function (_elm) {
               _U.list([$Html.text($Models$Episode.formatGuests(episode.guests))]))
               ,A2($Html.div,
               _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "text-align",_1: "center"}]))]),
-              _U.list([A2($Html.a,
-              _U.list([$Html$Attributes.href(episode.url),$Html$Attributes.target("_blank")]),
-              _U.list([$Html.text("Play / Download")]))]))]))]));
+              _U.list([A2($Html.img,
+                      _U.list([$Html$Attributes.src("/images/play.png")
+                              ,$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "height",_1: "20px"}
+                                                              ,{ctor: "_Tuple2",_0: "width",_1: "20px"}
+                                                              ,{ctor: "_Tuple2",_0: "border-radius",_1: "4px"}
+                                                              ,{ctor: "_Tuple2",_0: "background-color",_1: "#FF9F25"}
+                                                              ,{ctor: "_Tuple2",_0: "margin-right",_1: "20px"}]))]),
+                      _U.list([]))
+                      ,A2($Html.a,
+                      _U.list([$Html$Attributes.href(episode.url)
+                              ,$Html$Attributes.target("_blank")
+                              ,$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "color",_1: "#FF9F25"},{ctor: "_Tuple2",_0: "margin-right",_1: "10px"}]))]),
+                      _U.list([$Html.text("Download")]))
+                      ,A2($Html.span,
+                      _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "color",_1: "#ccc"}]))]),
+                      _U.list([$Html.text("(right-click, \"Save As\")")]))]))]))]));
    });
    var view = F2(function (address,model) {    return A2($Html.div,_U.list([]),A2($List.map,episodeLink(address),$Data$Episodes.orderedEpisodes));});
    var model = $Maybe.Nothing;

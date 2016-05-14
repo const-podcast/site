@@ -83,19 +83,39 @@ episodeLink address episode =
         [
           text <| formatGuests episode.guests
         ]
-    , div [
+    , div
+        [
           style [("text-align", "center")]
         ]
         [
-          a
-        [
-          href episode.url
-        , target "_blank"
+          img
+            [
+              src <| "/images/play.png"
+            , style [
+                ("height", "20px")
+              , ("width", "20px")
+              , ("border-radius", "4px")
+              , ("background-color", "#FF9F25")
+              , ("margin-right", "20px")
+              ]
+            ]
+            []
+        , a
+          [
+            href episode.url
+          , target "_blank"
+          , style [
+               ("color", "#FF9F25")
+              , ("margin-right", "10px")
+            ]
+          ]
+          [
+            text "Download"
+          ]
+        , span [style [("color", "#ccc")]] [text "(right-click, \"Save As\")"]
         ]
-        [
-          text "Play / Download"
-        ]
-    ]]]
+      ]
+    ]
 
 type Action = SelectEpisode Episode
 

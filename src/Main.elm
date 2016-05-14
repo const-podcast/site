@@ -61,19 +61,17 @@ location2action location = case location of
 view : Signal.Address Action -> Model -> Html.Html
 view address model =
   div
-    [
-      style [
-        ("", "")
-      ]
-    ]
+    []
     [
       Header.view
     , div
         [
           style [
-            ("padding-left","50%")
-          , ("padding-right","10%")
-          , ("padding-top","1em")
+            ("position", "fixed")
+          , ("overflow-y", "scroll")
+          , ("top", "100px")
+          , ("bottom", "0")
+          , ("right", "0")
           ]
         ]
         [

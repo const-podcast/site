@@ -29,9 +29,9 @@ episodeLink address episode =
       , ("padding", "10px")
       , ("margin-bottom", "10px")
       , ("padding-left", "1em")
-      , ("padding-right", "1em")
+      , ("padding-right", "30px")
       , ("background-color", "rgba(9,10,14,0.7)")
-      , ("min-height", "85px")
+      , ("max-width", "700px")
       ]
     ]
     [

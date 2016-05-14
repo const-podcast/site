@@ -13,10 +13,11 @@ import Common.Styles exposing (linkStyle)
 import Components.Header as Header
 import Components.Episode as Episode
 import Components.EpisodeList as Episodes
+import Components.EpisodeCard as Card
 
 app =
   StartApp.start {
-      init = (Episodes.model, Effects.none)
+      init = (Nothing, Effects.none)
     , view = view
     , update = update
     , inputs = [ messages.signal ]
@@ -41,7 +42,7 @@ port routeTasks =
         , location2action = location2action
         }
 
-type alias Model = Episodes.Model
+type alias Model = Card.Model
 
 delta2update : Model -> Model -> Maybe RouteHash.HashUpdate
 delta2update _ new = Just <| case new of
@@ -53,7 +54,7 @@ location2action location = case location of
   ("episode"::identifier::[]) ->
     case Episodes.by identifier of
       Just episode -> [
-          ListAction <| Episodes.SelectEpisode episode
+          ListAction <| Card.SelectEpisode episode
         ]
       Nothing -> [UnknownEpisodeSought identifier]
   _ -> [NavigateToEpisodeList]
@@ -90,13 +91,13 @@ view address model =
 
 type Action =
   NavigateToEpisodeList
-  | ListAction Episodes.Action
+  | ListAction Card.Action
   | UnknownEpisodeSought String
 
 update : Action -> Model -> (Model, Effects.Effects Action)
 update action _ =
   case action of
-    ListAction (Episodes.SelectEpisode episode) -> (Just episode, Effects.none)
+    ListAction (Card.SelectEpisode episode) -> (Just episode, Effects.none)
     _ -> (Nothing, Effects.none)
 
 appWideStyle : String

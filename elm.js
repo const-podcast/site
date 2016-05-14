@@ -11695,6 +11695,85 @@ Elm.Components.Episode.make = function (_elm) {
    };
    return _elm.Components.Episode.values = {_op: _op,view: view};
 };
+Elm.Components = Elm.Components || {};
+Elm.Components.EpisodeCard = Elm.Components.EpisodeCard || {};
+Elm.Components.EpisodeCard.make = function (_elm) {
+   "use strict";
+   _elm.Components = _elm.Components || {};
+   _elm.Components.EpisodeCard = _elm.Components.EpisodeCard || {};
+   if (_elm.Components.EpisodeCard.values) return _elm.Components.EpisodeCard.values;
+   var _U = Elm.Native.Utils.make(_elm),
+   $Basics = Elm.Basics.make(_elm),
+   $Debug = Elm.Debug.make(_elm),
+   $Html = Elm.Html.make(_elm),
+   $Html$Attributes = Elm.Html.Attributes.make(_elm),
+   $Html$Events = Elm.Html.Events.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Models$Episode = Elm.Models.Episode.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm),
+   $String = Elm.String.make(_elm);
+   var _op = {};
+   var update = F2(function (_p1,_p0) {    var _p2 = _p1;return $Maybe.Just(_p2._0);});
+   var SelectEpisode = function (a) {    return {ctor: "SelectEpisode",_0: a};};
+   var view = F2(function (address,episode) {
+      return A2($Html.span,
+      _U.list([]),
+      _U.list([A2($Html.div,
+      _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "border-radius",_1: "6px"}
+                                              ,{ctor: "_Tuple2",_0: "padding",_1: "10px"}
+                                              ,{ctor: "_Tuple2",_0: "margin-bottom",_1: "10px"}
+                                              ,{ctor: "_Tuple2",_0: "padding-left",_1: "1em"}
+                                              ,{ctor: "_Tuple2",_0: "padding-right",_1: "30px"}
+                                              ,{ctor: "_Tuple2",_0: "background-color",_1: "rgba(9,10,14,0.7)"}
+                                              ,{ctor: "_Tuple2",_0: "max-width",_1: "700px"}]))]),
+      _U.list([A2($Html.img,
+              _U.list([$Html$Attributes.src(A2($Basics._op["++"],"/images/",episode.icon))
+                      ,$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "height",_1: "70px"}
+                                                      ,{ctor: "_Tuple2",_0: "width",_1: "70px"}
+                                                      ,{ctor: "_Tuple2",_0: "border-radius",_1: "4px"}
+                                                      ,{ctor: "_Tuple2",_0: "float",_1: "left"}]))]),
+              _U.list([]))
+              ,A2($Html.p,
+              _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "color",_1: "#ccc"},{ctor: "_Tuple2",_0: "float",_1: "right"}]))]),
+              _U.list([$Html.text($Models$Episode.episodeNumber(episode))]))
+              ,A2($Html.a,
+              _U.list([]),
+              _U.list([A2($Html.h3,
+              _U.list([A2($Html$Events.onClick,address,SelectEpisode(episode))
+                      ,$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "color",_1: "#ccc"}
+                                                      ,{ctor: "_Tuple2",_0: "margin-left",_1: "90px"}
+                                                      ,{ctor: "_Tuple2",_0: "cursor",_1: "pointer"}]))]),
+              _U.list([$Html.text(episode.title)]))]))
+              ,A2($Html.p,
+              _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "color",_1: "white"},{ctor: "_Tuple2",_0: "margin-left",_1: "90px"}]))]),
+              _U.list([$Html.text($Models$Episode.formatGuests(episode.guests))]))
+              ,A2($Html.p,
+              _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "margin-left",_1: "90px"},{ctor: "_Tuple2",_0: "color",_1: "white"}]))]),
+              _U.list([$Html.text(A3($String.slice,0,70,episode.summary))
+                      ,$Html.text("...")
+                      ,A2($Html.br,_U.list([]),_U.list([]))
+                      ,A2($Html.a,
+                      _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "cursor",_1: "pointer"},{ctor: "_Tuple2",_0: "color",_1: "#FF9F25"}]))
+                              ,A2($Html$Events.onClick,address,SelectEpisode(episode))]),
+                      _U.list([$Html.text("(More and show notes...)")]))]))
+              ,A2($Html.div,
+              _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "text-align",_1: "center"}]))]),
+              _U.list([A2($Html.audio,
+                      _U.list([$Html$Attributes.controls(true)]),
+                      _U.list([A2($Html.source,_U.list([$Html$Attributes.src(episode.url),$Html$Attributes.type$("audio/mpeg")]),_U.list([]))]))
+                      ,A2($Html.a,
+                      _U.list([$Html$Attributes.href(episode.url)
+                              ,$Html$Attributes.target("_blank")
+                              ,$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "color",_1: "#FF9F25"},{ctor: "_Tuple2",_0: "margin-right",_1: "10px"}]))]),
+                      _U.list([$Html.text("Download")]))
+                      ,A2($Html.span,
+                      _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "color",_1: "#ccc"}]))]),
+                      _U.list([$Html.text("(right-click, \"Save As\")")]))]))]))]));
+   });
+   return _elm.Components.EpisodeCard.values = {_op: _op,view: view,update: update,SelectEpisode: SelectEpisode};
+};
 Elm.Data = Elm.Data || {};
 Elm.Data.Episodes = Elm.Data.Episodes || {};
 Elm.Data.Episodes.CodeSounds = Elm.Data.Episodes.CodeSounds || {};
@@ -11893,17 +11972,15 @@ Elm.Components.EpisodeList.make = function (_elm) {
    if (_elm.Components.EpisodeList.values) return _elm.Components.EpisodeList.values;
    var _U = Elm.Native.Utils.make(_elm),
    $Basics = Elm.Basics.make(_elm),
+   $Components$EpisodeCard = Elm.Components.EpisodeCard.make(_elm),
    $Data$Episodes = Elm.Data.Episodes.make(_elm),
    $Debug = Elm.Debug.make(_elm),
    $Html = Elm.Html.make(_elm),
-   $Html$Attributes = Elm.Html.Attributes.make(_elm),
-   $Html$Events = Elm.Html.Events.make(_elm),
    $List = Elm.List.make(_elm),
    $Maybe = Elm.Maybe.make(_elm),
    $Models$Episode = Elm.Models.Episode.make(_elm),
    $Result = Elm.Result.make(_elm),
-   $Signal = Elm.Signal.make(_elm),
-   $String = Elm.String.make(_elm);
+   $Signal = Elm.Signal.make(_elm);
    var _op = {};
    var by = function (identifier) {
       var matches = A2($List.filter,
@@ -11918,66 +11995,10 @@ Elm.Components.EpisodeList.make = function (_elm) {
             return $Maybe.Just(_p0._0);
          }
    };
-   var update = F2(function (_p2,_p1) {    var _p3 = _p2;return $Maybe.Just(_p3._0);});
-   var SelectEpisode = function (a) {    return {ctor: "SelectEpisode",_0: a};};
-   var episodeCard = F2(function (address,episode) {
-      return A2($Html.span,
-      _U.list([]),
-      _U.list([A2($Html.div,
-      _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "border-radius",_1: "6px"}
-                                              ,{ctor: "_Tuple2",_0: "padding",_1: "10px"}
-                                              ,{ctor: "_Tuple2",_0: "margin-bottom",_1: "10px"}
-                                              ,{ctor: "_Tuple2",_0: "padding-left",_1: "1em"}
-                                              ,{ctor: "_Tuple2",_0: "padding-right",_1: "30px"}
-                                              ,{ctor: "_Tuple2",_0: "background-color",_1: "rgba(9,10,14,0.7)"}
-                                              ,{ctor: "_Tuple2",_0: "max-width",_1: "700px"}]))]),
-      _U.list([A2($Html.img,
-              _U.list([$Html$Attributes.src(A2($Basics._op["++"],"/images/",episode.icon))
-                      ,$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "height",_1: "70px"}
-                                                      ,{ctor: "_Tuple2",_0: "width",_1: "70px"}
-                                                      ,{ctor: "_Tuple2",_0: "border-radius",_1: "4px"}
-                                                      ,{ctor: "_Tuple2",_0: "float",_1: "left"}]))]),
-              _U.list([]))
-              ,A2($Html.p,
-              _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "color",_1: "#ccc"},{ctor: "_Tuple2",_0: "float",_1: "right"}]))]),
-              _U.list([$Html.text($Models$Episode.episodeNumber(episode))]))
-              ,A2($Html.a,
-              _U.list([]),
-              _U.list([A2($Html.h3,
-              _U.list([A2($Html$Events.onClick,address,SelectEpisode(episode))
-                      ,$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "color",_1: "#ccc"}
-                                                      ,{ctor: "_Tuple2",_0: "margin-left",_1: "90px"}
-                                                      ,{ctor: "_Tuple2",_0: "cursor",_1: "pointer"}]))]),
-              _U.list([$Html.text(episode.title)]))]))
-              ,A2($Html.p,
-              _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "color",_1: "white"},{ctor: "_Tuple2",_0: "margin-left",_1: "90px"}]))]),
-              _U.list([$Html.text($Models$Episode.formatGuests(episode.guests))]))
-              ,A2($Html.p,
-              _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "margin-left",_1: "90px"},{ctor: "_Tuple2",_0: "color",_1: "white"}]))]),
-              _U.list([$Html.text(A3($String.slice,0,70,episode.summary))
-                      ,$Html.text("...")
-                      ,A2($Html.br,_U.list([]),_U.list([]))
-                      ,A2($Html.a,
-                      _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "cursor",_1: "pointer"},{ctor: "_Tuple2",_0: "color",_1: "#FF9F25"}]))
-                              ,A2($Html$Events.onClick,address,SelectEpisode(episode))]),
-                      _U.list([$Html.text("(More and show notes...)")]))]))
-              ,A2($Html.div,
-              _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "text-align",_1: "center"}]))]),
-              _U.list([A2($Html.audio,
-                      _U.list([$Html$Attributes.controls(true)]),
-                      _U.list([A2($Html.source,_U.list([$Html$Attributes.src(episode.url),$Html$Attributes.type$("audio/mpeg")]),_U.list([]))]))
-                      ,A2($Html.a,
-                      _U.list([$Html$Attributes.href(episode.url)
-                              ,$Html$Attributes.target("_blank")
-                              ,$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "color",_1: "#FF9F25"},{ctor: "_Tuple2",_0: "margin-right",_1: "10px"}]))]),
-                      _U.list([$Html.text("Download")]))
-                      ,A2($Html.span,
-                      _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "color",_1: "#ccc"}]))]),
-                      _U.list([$Html.text("(right-click, \"Save As\")")]))]))]))]));
+   var view = F2(function (address,model) {
+      return A2($Html.div,_U.list([]),A2($List.map,$Components$EpisodeCard.view(address),$Data$Episodes.orderedEpisodes));
    });
-   var view = F2(function (address,model) {    return A2($Html.div,_U.list([]),A2($List.map,episodeCard(address),$Data$Episodes.orderedEpisodes));});
-   var model = $Maybe.Nothing;
-   return _elm.Components.EpisodeList.values = {_op: _op,model: model,view: view,update: update,by: by,SelectEpisode: SelectEpisode};
+   return _elm.Components.EpisodeList.values = {_op: _op,view: view,by: by};
 };
 Elm.Components = Elm.Components || {};
 Elm.Components.Header = Elm.Components.Header || {};
@@ -12016,6 +12037,7 @@ Elm.Const.make = function (_elm) {
    $Basics = Elm.Basics.make(_elm),
    $Common$Styles = Elm.Common.Styles.make(_elm),
    $Components$Episode = Elm.Components.Episode.make(_elm),
+   $Components$EpisodeCard = Elm.Components.EpisodeCard.make(_elm),
    $Components$EpisodeList = Elm.Components.EpisodeList.make(_elm),
    $Components$Header = Elm.Components.Header.make(_elm),
    $Debug = Elm.Debug.make(_elm),
@@ -12078,7 +12100,7 @@ Elm.Const.make = function (_elm) {
             var _p5 = _p3._1._0;
             var _p4 = $Components$EpisodeList.by(_p5);
             if (_p4.ctor === "Just") {
-                  return _U.list([ListAction($Components$EpisodeList.SelectEpisode(_p4._0))]);
+                  return _U.list([ListAction($Components$EpisodeCard.SelectEpisode(_p4._0))]);
                } else {
                   return _U.list([UnknownEpisodeSought(_p5)]);
                }
@@ -12097,10 +12119,7 @@ Elm.Const.make = function (_elm) {
       }());
    });
    var messages = $Signal.mailbox(NavigateToEpisodeList);
-   var app = $StartApp.start({init: {ctor: "_Tuple2",_0: $Components$EpisodeList.model,_1: $Effects.none}
-                             ,view: view
-                             ,update: update
-                             ,inputs: _U.list([messages.signal])});
+   var app = $StartApp.start({init: {ctor: "_Tuple2",_0: $Maybe.Nothing,_1: $Effects.none},view: view,update: update,inputs: _U.list([messages.signal])});
    var main = app.html;
    var tasks = Elm.Native.Task.make(_elm).performSignal("tasks",app.tasks);
    var routeTasks = Elm.Native.Task.make(_elm).performSignal("routeTasks",

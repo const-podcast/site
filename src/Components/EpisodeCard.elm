@@ -2,6 +2,7 @@ module Components.EpisodeCard (view, update, Model, Action(..)) where
 
 import Html exposing (..)
 import Html.Attributes exposing (..)
+import Markdown
 import String
 
 import Models.Episode exposing (Episode, formatGuests, episodeNumber)
@@ -77,29 +78,7 @@ view opts address episode =
         [
           text <| formatGuests episode.guests
         ]
-    , p
-        [
-          style [
-            ("margin-left", "90px")
-          , ("color", "white")
-          ]
-        ]
-        [
-          text <| String.slice 0 70 episode.summary
-        , text "..."
-        , br [] []
-        , a
-            [
-              style [
-                ("cursor", "pointer")
-              , ("color", "#FF9F25")
-              ]
-            , onClick address (SelectEpisode episode)
-            ]
-            [
-              text "(More and show notes...)"
-            ]
-        ]
+    , summary opts address episode
     , div
         [
           style [("text-align", "center")]
@@ -140,3 +119,49 @@ type Action = SelectEpisode Episode
 
 update : Action -> Model -> Model
 update (SelectEpisode episode) _ = Just episode
+
+summary : Options -> Signal.Address Action -> Episode -> Html.Html
+summary opts =
+  case opts.fullSummary of
+    False -> fullSummary opts
+    _ -> clickForMore opts
+
+-- Markdown.toHtml model.summary
+
+fullSummary : Options -> Signal.Address Action -> Episode -> Html.Html
+fullSummary opts address episode =
+  div
+    [
+      style [
+        ("color", "white")
+      ]
+    ]
+    [
+      Markdown.toHtml episode.summary
+    ]
+
+clickForMore : Options -> Signal.Address Action -> Episode -> Html.Html
+clickForMore opts address episode =
+  p
+    [
+      style [
+        ("margin-left", "90px")
+      , ("color", "white")
+      ]
+    ]
+    [
+      text <| String.slice 0 70 episode.summary
+    , text "..."
+    , br [] []
+    , a
+        [
+          style [
+            ("cursor", "pointer")
+          , ("color", "#FF9F25")
+          ]
+        , onClick address (SelectEpisode episode)
+        ]
+        [
+          text "(More and show notes...)"
+        ]
+    ]

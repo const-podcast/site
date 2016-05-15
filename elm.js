@@ -11662,40 +11662,6 @@ Elm.Models.Episode.make = function (_elm) {
    return _elm.Models.Episode.values = {_op: _op,formatGuests: formatGuests,episodeNumber: episodeNumber,Episode: Episode};
 };
 Elm.Components = Elm.Components || {};
-Elm.Components.Episode = Elm.Components.Episode || {};
-Elm.Components.Episode.make = function (_elm) {
-   "use strict";
-   _elm.Components = _elm.Components || {};
-   _elm.Components.Episode = _elm.Components.Episode || {};
-   if (_elm.Components.Episode.values) return _elm.Components.Episode.values;
-   var _U = Elm.Native.Utils.make(_elm),
-   $Basics = Elm.Basics.make(_elm),
-   $Debug = Elm.Debug.make(_elm),
-   $Html = Elm.Html.make(_elm),
-   $Html$Attributes = Elm.Html.Attributes.make(_elm),
-   $List = Elm.List.make(_elm),
-   $Markdown = Elm.Markdown.make(_elm),
-   $Maybe = Elm.Maybe.make(_elm),
-   $Models$Episode = Elm.Models.Episode.make(_elm),
-   $Result = Elm.Result.make(_elm),
-   $Signal = Elm.Signal.make(_elm);
-   var _op = {};
-   var view = function (model) {
-      return A2($Html.div,
-      _U.list([]),
-      _U.list([A2($Html.h2,_U.list([]),_U.list([$Html.text(model.title)]))
-              ,A2($Html.iframe,
-              _U.list([$Html$Attributes.src(model.url),$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "height",_1: "80px"}]))]),
-              _U.list([]))
-              ,A2($Html.br,_U.list([]),_U.list([]))
-              ,A2($Html.a,
-              _U.list([$Html$Attributes.href(model.url),$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "cursor",_1: "pointer"}]))]),
-              _U.list([$Html.text("Download")]))
-              ,$Markdown.toHtml(model.summary)]));
-   };
-   return _elm.Components.Episode.values = {_op: _op,view: view};
-};
-Elm.Components = Elm.Components || {};
 Elm.Components.EpisodeCard = Elm.Components.EpisodeCard || {};
 Elm.Components.EpisodeCard.make = function (_elm) {
    "use strict";
@@ -11709,14 +11675,30 @@ Elm.Components.EpisodeCard.make = function (_elm) {
    $Html$Attributes = Elm.Html.Attributes.make(_elm),
    $Html$Events = Elm.Html.Events.make(_elm),
    $List = Elm.List.make(_elm),
+   $Markdown = Elm.Markdown.make(_elm),
    $Maybe = Elm.Maybe.make(_elm),
    $Models$Episode = Elm.Models.Episode.make(_elm),
    $Result = Elm.Result.make(_elm),
    $Signal = Elm.Signal.make(_elm),
    $String = Elm.String.make(_elm);
    var _op = {};
+   var fullSummary = F3(function (opts,address,episode) {
+      return A2($Html.div,_U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "color",_1: "white"}]))]),_U.list([$Markdown.toHtml(episode.summary)]));
+   });
    var update = F2(function (_p1,_p0) {    var _p2 = _p1;return $Maybe.Just(_p2._0);});
    var SelectEpisode = function (a) {    return {ctor: "SelectEpisode",_0: a};};
+   var clickForMore = F3(function (opts,address,episode) {
+      return A2($Html.p,
+      _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "margin-left",_1: "90px"},{ctor: "_Tuple2",_0: "color",_1: "white"}]))]),
+      _U.list([$Html.text(A3($String.slice,0,70,episode.summary))
+              ,$Html.text("...")
+              ,A2($Html.br,_U.list([]),_U.list([]))
+              ,A2($Html.a,
+              _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "cursor",_1: "pointer"},{ctor: "_Tuple2",_0: "color",_1: "#FF9F25"}]))
+                      ,A2($Html$Events.onClick,address,SelectEpisode(episode))]),
+              _U.list([$Html.text("(More and show notes...)")]))]));
+   });
+   var summary = function (opts) {    var _p3 = opts.fullSummary;if (_p3 === false) {    return fullSummary(opts);} else {    return clickForMore(opts);}};
    var view = F3(function (opts,address,episode) {
       return A2($Html.span,
       _U.list([]),
@@ -11752,15 +11734,7 @@ Elm.Components.EpisodeCard.make = function (_elm) {
               ,A2($Html.p,
               _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "color",_1: "white"},{ctor: "_Tuple2",_0: "margin-left",_1: "90px"}]))]),
               _U.list([$Html.text($Models$Episode.formatGuests(episode.guests))]))
-              ,A2($Html.p,
-              _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "margin-left",_1: "90px"},{ctor: "_Tuple2",_0: "color",_1: "white"}]))]),
-              _U.list([$Html.text(A3($String.slice,0,70,episode.summary))
-                      ,$Html.text("...")
-                      ,A2($Html.br,_U.list([]),_U.list([]))
-                      ,A2($Html.a,
-                      _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "cursor",_1: "pointer"},{ctor: "_Tuple2",_0: "color",_1: "#FF9F25"}]))
-                              ,A2($Html$Events.onClick,address,SelectEpisode(episode))]),
-                      _U.list([$Html.text("(More and show notes...)")]))]))
+              ,A3(summary,opts,address,episode)
               ,A2($Html.div,
               _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "text-align",_1: "center"}]))]),
               _U.list([A2($Html.audio,
@@ -11777,6 +11751,29 @@ Elm.Components.EpisodeCard.make = function (_elm) {
    });
    var Options = function (a) {    return {fullSummary: a};};
    return _elm.Components.EpisodeCard.values = {_op: _op,view: view,update: update,SelectEpisode: SelectEpisode};
+};
+Elm.Components = Elm.Components || {};
+Elm.Components.Episode = Elm.Components.Episode || {};
+Elm.Components.Episode.make = function (_elm) {
+   "use strict";
+   _elm.Components = _elm.Components || {};
+   _elm.Components.Episode = _elm.Components.Episode || {};
+   if (_elm.Components.Episode.values) return _elm.Components.Episode.values;
+   var _U = Elm.Native.Utils.make(_elm),
+   $Basics = Elm.Basics.make(_elm),
+   $Components$EpisodeCard = Elm.Components.EpisodeCard.make(_elm),
+   $Debug = Elm.Debug.make(_elm),
+   $Html = Elm.Html.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Models$Episode = Elm.Models.Episode.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm);
+   var _op = {};
+   var view = F2(function (address,model) {
+      return A2($Html.div,_U.list([]),_U.list([A3($Components$EpisodeCard.view,{fullSummary: false},address,model)]));
+   });
+   return _elm.Components.Episode.values = {_op: _op,view: view};
 };
 Elm.Data = Elm.Data || {};
 Elm.Data.Episodes = Elm.Data.Episodes || {};
@@ -12000,7 +11997,7 @@ Elm.Components.EpisodeList.make = function (_elm) {
          }
    };
    var view = F2(function (address,model) {
-      var shortCard = A2($Components$EpisodeCard.view,{fullSummary: false},address);
+      var shortCard = A2($Components$EpisodeCard.view,{fullSummary: true},address);
       return A2($Html.div,_U.list([]),A2($List.map,shortCard,$Data$Episodes.orderedEpisodes));
    });
    return _elm.Components.EpisodeList.values = {_op: _op,view: view,by: by};
@@ -12092,9 +12089,12 @@ Elm.Const.make = function (_elm) {
                        return A2($Html.div,
                        _U.list([]),
                        _U.list([A2($Html.a,
-                               _U.list([$Html$Attributes.style($Common$Styles.linkStyle),A2($Html$Events.onClick,address,NavigateToEpisodeList)]),
+                               _U.list([$Html$Attributes.style(A2($Basics._op["++"],
+                                       $Common$Styles.linkStyle,
+                                       _U.list([{ctor: "_Tuple2",_0: "cursor",_1: "pointer"},{ctor: "_Tuple2",_0: "color",_1: "#FF9F25"}])))
+                                       ,A2($Html$Events.onClick,address,NavigateToEpisodeList)]),
                                _U.list([$Html.text("All episodes")]))
-                               ,$Components$Episode.view(_p2._0)]));
+                               ,A2($Components$Episode.view,A2($Signal.forwardTo,address,ListAction),_p2._0)]));
                     }
               }()]))
               ,A3($Html.node,"style",_U.list([]),_U.list([$Html.text(appWideStyle)]))]));

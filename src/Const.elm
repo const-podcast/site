@@ -80,10 +80,17 @@ view address model =
              Nothing -> Episodes.view (Signal.forwardTo address ListAction) model
              Just episode -> div [] [
                  a [
-                   style linkStyle
-                 , onClick address NavigateToEpisodeList
-                 ] [text "All episodes"]
-               , Episode.view episode
+                      style <| linkStyle ++
+                      [
+                        ("cursor", "pointer")
+                      , ("color", "#FF9F25")
+                      ]
+                   , onClick address NavigateToEpisodeList
+                   ]
+                   [
+                     text "All episodes"
+                   ]
+               , Episode.view (Signal.forwardTo address ListAction) episode
                ]
         ]
     , Html.node "style" [] [text appWideStyle]

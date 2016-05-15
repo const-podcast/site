@@ -9,7 +9,7 @@ import Models.Episode exposing (Episode)
 view : Signal.Address Card.Action -> Card.Model -> Html.Html
 view address model =
   let
-    shortCard = Card.view { fullSummary = False } address
+    shortCard = Card.view { fullSummary = True } address
   in
     div
       []

@@ -11683,7 +11683,9 @@ Elm.Components.EpisodeCard.make = function (_elm) {
    $String = Elm.String.make(_elm);
    var _op = {};
    var fullSummary = F3(function (opts,address,episode) {
-      return A2($Html.div,_U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "color",_1: "white"}]))]),_U.list([$Markdown.toHtml(episode.summary)]));
+      return A2($Html.div,
+      _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "color",_1: "white"}]))]),
+      _U.list([A2($Html.br,_U.list([]),_U.list([])),$Markdown.toHtml(episode.summary)]));
    });
    var update = F2(function (_p1,_p0) {    var _p2 = _p1;return $Maybe.Just(_p2._0);});
    var SelectEpisode = function (a) {    return {ctor: "SelectEpisode",_0: a};};

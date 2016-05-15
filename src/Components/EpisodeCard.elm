@@ -126,8 +126,6 @@ summary opts =
     False -> fullSummary opts
     _ -> clickForMore opts
 
--- Markdown.toHtml model.summary
-
 fullSummary : Options -> Signal.Address Action -> Episode -> Html.Html
 fullSummary opts address episode =
   div
@@ -137,6 +135,7 @@ fullSummary opts address episode =
       ]
     ]
     [
+      br [] [],
       Markdown.toHtml episode.summary
     ]
 

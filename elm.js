@@ -11931,7 +11931,7 @@ Elm.Data.Episodes.TheQaDeveloperRelationship.make = function (_elm) {
    $Result = Elm.Result.make(_elm),
    $Signal = Elm.Signal.make(_elm);
    var _op = {};
-   var summary = "\nThe relationship between QAs and developers can truly make or break a product.\nJoin us as we discuss ways developers can help make this relationship flourish.\n";
+   var summary = "\nThe relationship between QAs and developers can truly make or break a product.\nJoin us as we discuss ways developers can help make this relationship flourish.\n\n#### Show Notes\n - **Do not** put up a \"do not disturb sign\"\n - **Do** be open\n - [The programmer as a professional problem-solver](http://blog.codinghorror.com/can-your-team-pass-the-elevator-test/)\n - Recent movement to \"automate everything\" in last 5-6 years\n - We need both manual and automated testers\n - It makes sense for [Load Testing](https://en.wikipedia.org/wiki/Load_testing) to be automated\n - Some products are inherently difficult to write automated tests for (e.g. audio/visual)\n - If you are a manual tester, try to learn a language; If automated, try manual\n - [Bug Bash](https://en.wikipedia.org/wiki/Bug_bash)\n - Quality assurance happens before delivery and quality control comes after\n - [HP ALM](http://www8.hp.com/us/en/software-solutions/application-lifecycle-management.html)\n - \"Don\'t become complacent to how they taught you in school\"\n - There are websites for freelance QA work\n - [Rich Hickey on programmer meta-culture](https://www.youtube.com/watch?v=rI8tNMsozo0&feature=youtu.be&t=13m10s)\n - \"QA is not needed\" is a myth\n\n";
    var episode = {title: "The QA-Developer Relationship"
                  ,guests: _U.list(["Coilynn Buford"])
                  ,summary: summary

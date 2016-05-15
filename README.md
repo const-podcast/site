@@ -1,5 +1,5 @@
 # site
-The website for const the podcast
+The website for const the podcast: http://www.constpodcast.com/
 
 ## Developing
 Install elm

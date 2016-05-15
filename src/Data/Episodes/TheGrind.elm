@@ -26,7 +26,7 @@ nights. Join us as we discuss the benefits and trade-offs of grind-state.
  - [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security)
  - [Correlation vs causation](https://en.wikipedia.org/wiki/Correlation_does_not_imply_causation)
  - ["Don't mistake activity with achievement" ~John Wooden](http://www.goodreads.com/quotes/47570-don-t-mistake-activity-with-achievement)
- - Critical thinkings is hard
+ - Critical thinking is hard
  - [Barbara Liskov](https://en.wikipedia.org/wiki/Barbara_Liskov)
  - [Liskov substitution principle](https://en.wikipedia.org/wiki/Liskov_substitution_principle)
  - [SOLID principles](http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod)
